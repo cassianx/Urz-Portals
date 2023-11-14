@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Dropdown Form with Canvas</title>
-    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Noto+Emoji&display=swap">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Noto+Emoji|Inter&display=swap">
     <style>
         body {
             display: flex;
@@ -15,7 +15,7 @@
             flex-direction: column;
             background-color: #111111;
             color: #fff;
-            font-family: 'Roboto', sans-serif;
+            font-family: 'Inter', sans-serif;
         }
 
         form {
@@ -26,6 +26,7 @@
         label {
             display: block;
             font-size: 18px;
+            text-transform: uppercase;
         }
 
         select {
@@ -37,6 +38,10 @@
 
         canvas {
             margin-bottom: 20px;
+            aspect-ratio: 16 / 9;
+            max-width: 960px;
+            width:100%;
+            background-color: #00010e;
         }
 
         button {
@@ -100,7 +105,7 @@
         </div>
     </form>
 
-    <canvas id="resultCanvas" width="960" height="540" style="background-color: #00010e;"></canvas>
+    <canvas id="resultCanvas"></canvas>
 
     <button id="downloadButton">Download</button>
 
