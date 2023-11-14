@@ -124,21 +124,18 @@
             };
 
             const imgLeft = new Image();
-            imgLeft.crossOrigin = "anonymous";
             imgLeft.src = imageUrlLeft;
             imgLeft.onload = () => {
                 drawImage(imgLeft, spacing, (canvas.height - imageSize) / 2);
             };
 
             const imgMiddle = new Image();
-            imgMiddle.crossOrigin = "anonymous";
             imgMiddle.src = imageUrlMiddle;
             imgMiddle.onload = () => {
                 drawImage(imgMiddle, spacing + imageSize + spacing, (canvas.height - imageSize) / 2);
             };
 
             const imgRight = new Image();
-            imgRight.crossOrigin = "anonymous";
             imgRight.src = imageUrlRight;
             imgRight.onload = () => {
                 drawImage(imgRight, spacing + 2 * (imageSize + spacing), (canvas.height - imageSize) / 2);
