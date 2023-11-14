@@ -3,8 +3,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Urzikstan Portal Codes</title>
-    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Roboto:wght@400&display=swap">
+    <title>Dropdown Form with Canvas</title>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Noto+Emoji&display=swap">
     <style>
         body {
             display: flex;
@@ -13,9 +13,9 @@
             height: 100vh;
             margin: 0;
             flex-direction: column;
-            background-color: #111111; 
-            color: #fff; 
-            font-family: 'Roboto', sans-serif; 
+            background-color: #111111; /* Dark Background */
+            color: #fff; /* White Text Color */
+            font-family: 'Roboto', sans-serif; /* Roboto Font */
         }
 
         form {
@@ -24,7 +24,8 @@
         }
 
         select {
-            margin: 0 10px; 
+            margin: 0 10px; /* Add margin between form dropdowns */
+            font-family: 'Noto Emoji', sans-serif; /* Noto Emoji Font */
         }
 
         canvas {
@@ -33,11 +34,17 @@
 
         button {
             background-color: #4CAF50;
+            /* Green background */
             border: none;
+            /* Remove borders */
             color: white;
+            /* White text */
             padding: 10px 20px;
+            /* Some padding */
             font-size: 16px;
+            /* Set a font size */
             cursor: pointer;
+            /* Mouse pointer on hover */
         }
     </style>
 </head>
@@ -46,46 +53,46 @@
     <form id="imageForm">
         <label for="dropdownLeft">Left:</label>
         <select id="dropdownLeft" name="dropdownLeft">
-            <option value="B">Bow</option>
-            <option value="C">Candle</option>
-            <option value="G">Giraffes</option>
-            <option value="H">Hook</option>
-            <option value="K">Key</option>
-            <option value="P">Pizza</option>
-            <option value="S">Swan</option>
-            <option value="T">Timer</option>
+            <option value="B">🏹</option>
+            <option value="C">🕯</option>
+            <option value="G">🦒</option>
+            <option value="H">🪝</option>
+            <option value="K">🗝</option>
+            <option value="P">🍕</option>
+            <option value="S">🦢</option>
+            <option value="T">⌛</option>
         </select>
 
         <label for="dropdownMiddle">Middle:</label>
         <select id="dropdownMiddle" name="dropdownMiddle">
             <!-- Same options as dropdownLeft -->
-            <option value="B">Bow</option>
-            <option value="C">Candle</option>
-            <option value="G">Giraffes</option>
-            <option value="H">Hook</option>
-            <option value="K">Key</option>
-            <option value="P">Pizza</option>
-            <option value="S">Swan</option>
-            <option value="T">Timer</option>
+            <option value="B">🏹</option>
+            <option value="C">🕯</option>
+            <option value="G">🦒</option>
+            <option value="H">🪝</option>
+            <option value="K">🗝</option>
+            <option value="P">🍕</option>
+            <option value="S">🦢</option>
+            <option value="T">⌛</option>
         </select>
 
         <label for="dropdownRight">Right:</label>
         <select id="dropdownRight" name="dropdownRight">
             <!-- Same options as dropdownLeft -->
-            <option value="B">Bow</option>
-            <option value="C">Candle</option>
-            <option value="G">Giraffes</option>
-            <option value="H">Hook</option>
-            <option value="K">Key</option>
-            <option value="P">Pizza</option>
-            <option value="S">Swan</option>
-            <option value="T">Timer</option>
+            <option value="B">🏹</option>
+            <option value="C">🕯</option>
+            <option value="G">🦒</option>
+            <option value="H">🪝</option>
+            <option value="K">🗝</option>
+            <option value="P">🍕</option>
+            <option value="S">🦢</option>
+            <option value="T">⌛</option>
         </select>
     </form>
 
     <canvas id="resultCanvas" width="960" height="540" style="background-color: #00010e;"></canvas>
 
-    <button id="downloadButton">Download Canvas</button>
+    <button id="downloadButton">Download</button>
 
     <script>
         function generateCanvas() {
@@ -94,7 +101,7 @@
             const valueMiddle = document.getElementById('dropdownMiddle').value;
             const valueRight = document.getElementById('dropdownRight').value;
 
-            // Generate image URLs
+            // Generate image URLs with .png extension
             const imageUrlLeft = valueLeft + '.png';
             const imageUrlMiddle = valueMiddle + '.png';
             const imageUrlRight = valueRight + '.png';
