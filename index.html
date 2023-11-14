@@ -13,9 +13,9 @@
             height: 100vh;
             margin: 0;
             flex-direction: column;
-            background-color: #111111; /* Dark Background */
-            color: #fff; /* White Text Color */
-            font-family: 'Roboto', sans-serif; /* Roboto Font */
+            background-color: #111111;
+            color: #fff;
+            font-family: 'Roboto', sans-serif;
         }
 
         form {
@@ -23,9 +23,16 @@
             margin-bottom: 20px;
         }
 
+        label {
+            display: block;
+            font-size: 18px;
+        }
+
         select {
-            margin: 0 10px; /* Add margin between form dropdowns */
-            font-family: 'Noto Emoji', sans-serif; /* Noto Emoji Font */
+            display: block;
+            margin: 10px auto;
+            font-family: 'Noto Emoji', sans-serif;
+            font-size: 72px;
         }
 
         canvas {
@@ -33,61 +40,64 @@
         }
 
         button {
-            background-color: #4CAF50;
-            /* Green background */
+            background-color: #0000FF;
             border: none;
-            /* Remove borders */
             color: white;
-            /* White text */
             padding: 10px 20px;
-            /* Some padding */
             font-size: 16px;
-            /* Set a font size */
             cursor: pointer;
-            /* Mouse pointer on hover */
+        }
+
+        .dropdown-container {
+            display: inline-block;
+            margin: 0 10px; /* Add some space between dropdown containers */
         }
     </style>
 </head>
 <body>
 
     <form id="imageForm">
-        <label for="dropdownLeft">Left:</label>
-        <select id="dropdownLeft" name="dropdownLeft">
-            <option value="B">🏹</option>
-            <option value="C">🕯</option>
-            <option value="G">🦒</option>
-            <option value="H">🪝</option>
-            <option value="K">🗝</option>
-            <option value="P">🍕</option>
-            <option value="S">🦢</option>
-            <option value="T">⌛</option>
-        </select>
+        <div class="dropdown-container">
+            <label for="dropdownLeft">Left:</label>
+            <select id="dropdownLeft" name="dropdownLeft">
+                <option value="B">🏹</option>
+                <option value="C">🕯</option>
+                <option value="G">🦒</option>
+                <option value="H">🪝</option>
+                <option value="K">🗝</option>
+                <option value="P">🍕</option>
+                <option value="S">🦢</option>
+                <option value="T">⌛</option>
+            </select>
+        </div>
 
-        <label for="dropdownMiddle">Middle:</label>
-        <select id="dropdownMiddle" name="dropdownMiddle">
-            <!-- Same options as dropdownLeft -->
-            <option value="B">🏹</option>
-            <option value="C">🕯</option>
-            <option value="G">🦒</option>
-            <option value="H">🪝</option>
-            <option value="K">🗝</option>
-            <option value="P">🍕</option>
-            <option value="S">🦢</option>
-            <option value="T">⌛</option>
-        </select>
+        <div class="dropdown-container">
+            <label for="dropdownMiddle">Middle:</label>
+            <select id="dropdownMiddle" name="dropdownMiddle">
+                <option value="B">🏹</option>
+                <option value="C">🕯</option>
+                <option value="G">🦒</option>
+                <option value="H">🪝</option>
+                <option value="K">🗝</option>
+                <option value="P">🍕</option>
+                <option value="S">🦢</option>
+                <option value="T">⌛</option>
+            </select>
+        </div>
 
-        <label for="dropdownRight">Right:</label>
-        <select id="dropdownRight" name="dropdownRight">
-            <!-- Same options as dropdownLeft -->
-            <option value="B">🏹</option>
-            <option value="C">🕯</option>
-            <option value="G">🦒</option>
-            <option value="H">🪝</option>
-            <option value="K">🗝</option>
-            <option value="P">🍕</option>
-            <option value="S">🦢</option>
-            <option value="T">⌛</option>
-        </select>
+        <div class="dropdown-container">
+            <label for="dropdownRight">Right:</label>
+            <select id="dropdownRight" name="dropdownRight">
+                <option value="B">🏹</option>
+                <option value="C">🕯</option>
+                <option value="G">🦒</option>
+                <option value="H">🪝</option>
+                <option value="K">🗝</option>
+                <option value="P">🍕</option>
+                <option value="S">🦢</option>
+                <option value="T">⌛</option>
+            </select>
+        </div>
     </form>
 
     <canvas id="resultCanvas" width="960" height="540" style="background-color: #00010e;"></canvas>
@@ -96,25 +106,20 @@
 
     <script>
         function generateCanvas() {
-            // Get selected values from dropdowns
             const valueLeft = document.getElementById('dropdownLeft').value;
             const valueMiddle = document.getElementById('dropdownMiddle').value;
             const valueRight = document.getElementById('dropdownRight').value;
 
-            // Generate image URLs with .png extension
             const imageUrlLeft = valueLeft + '.png';
             const imageUrlMiddle = valueMiddle + '.png';
             const imageUrlRight = valueRight + '.png';
 
-            // Get the canvas element
             const canvas = document.getElementById('resultCanvas');
             const ctx = canvas.getContext('2d');
 
-            // Clear previous content and set background color
             ctx.fillStyle = "#00010e";
             ctx.fillRect(0, 0, canvas.width, canvas.height);
 
-            // Draw images on the canvas spaced evenly
             const numImages = 3;
             const imageSize = canvas.width * 0.3;
             const totalWidth = numImages * imageSize;
@@ -143,16 +148,13 @@
             };
         }
 
-        // Trigger generateCanvas() when the page loads
         window.addEventListener('load', generateCanvas);
 
-        // Trigger generateCanvas() when dropdown values change
         const dropdowns = document.querySelectorAll('select');
         dropdowns.forEach(dropdown => {
             dropdown.addEventListener('change', generateCanvas);
         });
 
-        // Download button functionality
         const downloadButton = document.getElementById('downloadButton');
         downloadButton.addEventListener('click', () => {
             const canvas = document.getElementById('resultCanvas');
